@@ -32,9 +32,9 @@ router.get('/gettaikhoan/:id', (req, res, next) => {
     });
 });
 // thêm dữ liệu db
-router.post('/', (req, res, next) => {
+router.post('/create-user', (req, res, next) => {
     const data = {
-        tenNguoiDung: req.body.tenNguoiDung,
+        tennguoiDung: req.body.tennguoiDung,
         email: req.body.email,
         password: req.body.password,
         quyen: req.body.quyen
@@ -42,7 +42,8 @@ router.post('/', (req, res, next) => {
     con.query('insert into nguoidung set ?', data, function (err, result, fields) {
         if (err) throw err
         console.log("Thêm dữ liệu thành công:");
-        res.json(result);
+        res.redirect('back');
+
 
     });
 });

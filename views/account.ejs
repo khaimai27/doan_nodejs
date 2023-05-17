@@ -3,6 +3,24 @@
 
 <head>
     <style>
+        .create-user {
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .create-user label {
+            display: block;
+        }
+
+        .create-user button:hover {
+            padding: 10px;
+            background-color: coral;
+            cursor: pointer;
+
+
+        }
+
         header {
             text-align: right;
             padding: 8px;
@@ -31,14 +49,12 @@
 
         tr:hover {
             background-color: coral;
+
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <button id="addButton">Thêm người dùng</button>
-    </header>
     <h2>Danh sách tài khoản</h2>
 
     <table>
@@ -74,7 +90,28 @@
             </tr>
             <% }); %>
     </table>
-
+    <div class="create-user">
+        <form action="/api/taikhoan/create-user" method="post">
+            <div><strong>Thêm mới tài khoản</strong></div>
+            <div>
+                <label>Tên:</label>
+                <input type="text" name="tennguoiDung" />
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" />
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" name="password" />
+            </div>
+            <div>
+                <label>Quyền</label>
+                <input type="text" name="quyen" />
+            </div>
+            <button class="addUser">Thêm người dùng</button>
+        </form>
+    </div>
 </body>
 
 </html>
