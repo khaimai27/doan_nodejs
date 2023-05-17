@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        header {
+            text-align: right;
+            padding: 8px;
+        }
+
+        header button {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        header button:hover {
+            background-color: coral;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button id="addButton">Thêm người dùng</button>
+    </header>
+    <h2>Danh sách tài khoản</h2>
+
+    <table>
+        <tr>
+            <th>Mã người dùng</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Quyền</th>
+            <th>Hành động</th>
+        </tr>
+        <% accounts.forEach(function(account) { %>
+            <tr>
+                <td>
+                    <%= account.id_nguoiDung %>
+                </td>
+                <td>
+                    <%= account.tennguoiDung %>
+                </td>
+                <td>
+                    <%= account.email %>
+                </td>
+                <td>
+                    <%= account.password %>
+                </td>
+                <td>
+                    <%= account.quyen %>
+                </td>
+                <td>
+                    <a href="/api/taikhoan/gettaikhoan/<%=account.id_nguoiDung%>">Thông tin chi tiết</a>
+                    <button class="deleteButton">Xóa</button>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+
+</body>
+
+</html>
